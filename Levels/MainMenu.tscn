@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/Recurso 4.png" type="Texture" id=1]
+[ext_resource path="res://addons/towi_godot/Assets/UI/Nunito-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Levels/MainMenu.gd" type="Script" id=3]
+[ext_resource path="res://addons/towi_godot/Assets/UI/Buttons/Towi_Button_Ok.png" type="Texture" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 62
+font_data = ExtResource( 2 )
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = -1.0
+margin_top = -2.0
+margin_right = 1032.0
+margin_bottom = 605.0
+texture = ExtResource( 1 )
+expand = true
+
+[node name="Label" type="Label" parent="."]
+margin_left = 328.0
+margin_top = 180.0
+margin_right = 670.0
+margin_bottom = 279.0
+custom_fonts/font = SubResource( 1 )
+text = "Hola mundo"
+
+[node name="Button" type="Button" parent="Label"]
+margin_left = 103.0
+margin_top = 126.0
+margin_right = 243.0
+margin_bottom = 260.0
+icon = ExtResource( 4 )
+flat = true
+
+[connection signal="pressed" from="Label/Button" to="." method="Play"]
