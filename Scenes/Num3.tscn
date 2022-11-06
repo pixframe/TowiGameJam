@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://sprites/num3.png" type="Texture" id=1]
+[ext_resource path="res://scripts/Num3_2D.gd" type="Script" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "num3"
+length = 0.9
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[node name="Num3" type="Node2D"]
+
+[node name="Num3_2D" type="Area2D" parent="."]
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Num3_2D"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Num3_2D"]
+position = Vector2( 1, 0 )
+texture = ExtResource( 1 )
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Num3_2D"]
+autoplay = "num3"
+playback_speed = 1.5
+anims/RESET = SubResource( 2 )
+anims/num3 = SubResource( 3 )
+
+[connection signal="body_entered" from="Num3_2D" to="Num3_2D" method="_on_Num3_2D_body_entered"]
+[connection signal="body_exited" from="Num3_2D" to="Num3_2D" method="_on_Num3_2D_body_exited"]
