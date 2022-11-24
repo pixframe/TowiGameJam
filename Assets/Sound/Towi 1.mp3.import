@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Towi 1.mp3-bdb646b119af5e7939e3646426a7f7b7.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sound/Towi 1.mp3"
+dest_files=[ "res://.import/Towi 1.mp3-bdb646b119af5e7939e3646426a7f7b7.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
